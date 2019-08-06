@@ -1,24 +1,36 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Install Postgres server
 
-Things you may want to cover:
+Install PostgreSQL and some other required packages with the apt command:
 
-* Ruby version
+```sudo apt-get -y install postgresql postgresql-contrib libpq```
 
-* System dependencies
+When the installation is done, login to the postgres user and access the postgresql shell.
 
-* Configuration
+```su - postgres```
+```psql```
 
-* Database creation
+Give the postgres user a new password with command below:
 
-* Database initialization
+```\password postgres```
+```Enter new password:```
 
-* How to run the test suite
+# Another way to login to postgres (If above does not work)
+```sudo -u postgres psql```
 
-* Services (job queues, cache servers, search engines, etc.)
+# Create a user for postgres
+Next, create a new role named 'rails-dev' for the rails development with the command below:
+```create role rails_dev with createdb login password 'aqwe123';```
 
-* Deployment instructions
+Set a new password for the user and check that the user has been created.
 
-* ...
+Now check the new role and you will see new role has been created:
+```\du```
+
+
+
+# Start rails server
+* ```bundle install```
+* ``` rails db:setup```
+* ``` rails db:migrate```
+* ```rails s```
