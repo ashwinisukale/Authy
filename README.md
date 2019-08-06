@@ -34,3 +34,6 @@ Now check the new role and you will see new role has been created:
 * ``` rails db:setup```
 * ``` rails db:migrate```
 * ```rails s```
+
+# Login to Application
+```http://localhost:3000```
